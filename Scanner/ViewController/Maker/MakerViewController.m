@@ -63,7 +63,7 @@
     CGImageRelease(bitmapImage);
     return reusult;
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 - (IBAction)makerTouched:(id)sender {
