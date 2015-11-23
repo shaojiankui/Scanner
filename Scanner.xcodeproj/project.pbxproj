@@ -38,6 +38,12 @@
 		A26522DE1B8725310067F972 /* icon_done@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A26522DC1B8725310067F972 /* icon_done@3x.png */; };
 		A2D4EC441B856AA700F57317 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D4EC431B856AA700F57317 /* libsqlite3.dylib */; };
 		A2D4EC461B856AAC00F57317 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D4EC451B856AAC00F57317 /* libz.dylib */; };
+		A2E08AA61C0300130065CDA1 /* RecognizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E08AA41C0300130065CDA1 /* RecognizeViewController.m */; };
+		A2E08AA71C0300130065CDA1 /* RecognizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2E08AA51C0300130065CDA1 /* RecognizeViewController.xib */; };
+		A2E08AAB1C030A340065CDA1 /* icon_browse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E08AA91C030A340065CDA1 /* icon_browse@2x.png */; };
+		A2E08AAD1C030A4F0065CDA1 /* icon_browse@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E08AAC1C030A4F0065CDA1 /* icon_browse@3x.png */; };
+		A2E08AB01C030B960065CDA1 /* icon_find@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E08AAE1C030B960065CDA1 /* icon_find@2x.png */; };
+		A2E08AB11C030B960065CDA1 /* icon_find@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E08AAF1C030B960065CDA1 /* icon_find@3x.png */; };
 		A2E961BB1B844131002E0B30 /* icon_history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E961B71B844131002E0B30 /* icon_history@2x.png */; };
 		A2E961BC1B844131002E0B30 /* icon_history@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E961B81B844131002E0B30 /* icon_history@3x.png */; };
 		A2E961BD1B844131002E0B30 /* icon_qrcode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E961B91B844131002E0B30 /* icon_qrcode@2x.png */; };
@@ -97,6 +103,13 @@
 		A26522DC1B8725310067F972 /* icon_done@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_done@3x.png"; sourceTree = "<group>"; };
 		A2D4EC431B856AA700F57317 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A2D4EC451B856AAC00F57317 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A2E08AA31C0300130065CDA1 /* RecognizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizeViewController.h; sourceTree = "<group>"; };
+		A2E08AA41C0300130065CDA1 /* RecognizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizeViewController.m; sourceTree = "<group>"; };
+		A2E08AA51C0300130065CDA1 /* RecognizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecognizeViewController.xib; sourceTree = "<group>"; };
+		A2E08AA91C030A340065CDA1 /* icon_browse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_browse@2x.png"; sourceTree = "<group>"; };
+		A2E08AAC1C030A4F0065CDA1 /* icon_browse@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_browse@3x.png"; sourceTree = "<group>"; };
+		A2E08AAE1C030B960065CDA1 /* icon_find@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_find@2x.png"; sourceTree = "<group>"; };
+		A2E08AAF1C030B960065CDA1 /* icon_find@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_find@3x.png"; sourceTree = "<group>"; };
 		A2E961B71B844131002E0B30 /* icon_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_history@2x.png"; sourceTree = "<group>"; };
 		A2E961B81B844131002E0B30 /* icon_history@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_history@3x.png"; sourceTree = "<group>"; };
 		A2E961B91B844131002E0B30 /* icon_qrcode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_qrcode@2x.png"; sourceTree = "<group>"; };
@@ -172,6 +185,7 @@
 		A247542F1B81B3490073A6AB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A2E08AA21C0300050065CDA1 /* Recognize */,
 				A26522D11B871D5D0067F972 /* Maker */,
 				A26522BF1B871D370067F972 /* History */,
 				A26522C31B871D370067F972 /* Info */,
@@ -187,6 +201,10 @@
 		A24FC3BF1B8437F900C2055A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A2E08AAE1C030B960065CDA1 /* icon_find@2x.png */,
+				A2E08AAF1C030B960065CDA1 /* icon_find@3x.png */,
+				A2E08AAC1C030A4F0065CDA1 /* icon_browse@3x.png */,
+				A2E08AA91C030A340065CDA1 /* icon_browse@2x.png */,
 				A26522DB1B8725310067F972 /* icon_done@2x.png */,
 				A26522DC1B8725310067F972 /* icon_done@3x.png */,
 				A26522D71B871F1E0067F972 /* icon_make@2x.png */,
@@ -274,6 +292,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A2E08AA21C0300050065CDA1 /* Recognize */ = {
+			isa = PBXGroup;
+			children = (
+				A2E08AA31C0300130065CDA1 /* RecognizeViewController.h */,
+				A2E08AA41C0300130065CDA1 /* RecognizeViewController.m */,
+				A2E08AA51C0300130065CDA1 /* RecognizeViewController.xib */,
+			);
+			path = Recognize;
+			sourceTree = "<group>";
+		};
 		A2E961BF1B845487002E0B30 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +375,7 @@
 				TargetAttributes = {
 					A24754081B81ABED0073A6AB = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 6585UJ5TQ9;
 					};
 				};
 			};
@@ -374,7 +403,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2E961BE1B844131002E0B30 /* icon_qrcode@3x.png in Resources */,
+				A2E08AA71C0300130065CDA1 /* RecognizeViewController.xib in Resources */,
 				A2E961D31B847AAB002E0B30 /* icon_copy@3x.png in Resources */,
+				A2E08AAD1C030A4F0065CDA1 /* icon_browse@3x.png in Resources */,
+				A2E08AAB1C030A340065CDA1 /* icon_browse@2x.png in Resources */,
 				A24754241B81AC250073A6AB /* LaunchScreen.storyboard in Resources */,
 				A26522D91B871F1E0067F972 /* icon_make@2x.png in Resources */,
 				A26522CE1B871D370067F972 /* InfoViewController.xib in Resources */,
@@ -388,8 +420,10 @@
 				A26522D01B871D370067F972 /* ScanViewController.xib in Resources */,
 				A2E961D21B847AAB002E0B30 /* icon_copy@2x.png in Resources */,
 				A25DD6321B8595BF009060B1 /* icon_light@3x.png in Resources */,
+				A2E08AB01C030B960065CDA1 /* icon_find@2x.png in Resources */,
 				A26522D61B871D880067F972 /* MakerViewController.xib in Resources */,
 				A2E961CA1B8467A3002E0B30 /* icon_clean@3x.png in Resources */,
+				A2E08AB11C030B960065CDA1 /* icon_find@3x.png in Resources */,
 				A26522CC1B871D370067F972 /* HistoryViewController.xib in Resources */,
 				A2E961BB1B844131002E0B30 /* icon_history@2x.png in Resources */,
 				A2E961BD1B844131002E0B30 /* icon_qrcode@2x.png in Resources */,
@@ -421,6 +455,7 @@
 				A247542D1B81AD420073A6AB /* RootViewController.m in Sources */,
 				A26522CD1B871D370067F972 /* InfoViewController.m in Sources */,
 				A25DD62E1B858D9D009060B1 /* ImagePickerController.m in Sources */,
+				A2E08AA61C0300130065CDA1 /* RecognizeViewController.m in Sources */,
 				A26522D51B871D880067F972 /* MakerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,7 +547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Scanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -526,7 +561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Scanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -11,6 +11,7 @@
 #import "HistoryViewController.h"
 #import "InfoViewController.h"
 #import "MakerViewController.h"
+#import "RecognizeViewController.h"
 
 #import "JKAlert.h"
 #import "DateManager.h"
@@ -20,6 +21,7 @@
     ScanViewController *_scan;
     HistoryViewController *_history;
     MakerViewController *_maker;
+    RecognizeViewController *_recognize;
     UIButton *_turnButton;
 }
 @end
@@ -33,16 +35,17 @@
     self.delegate = self;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    
+    __weak typeof(self) weakSelf = self;
     _scan = [[ScanViewController alloc]init];
     [_scan finishingBlock:^(NSString *string) {
-        NSLog(@"string:%@",string);
-        InfoViewController *info = [[InfoViewController alloc]init];
-        NSDictionary *item =  @{@"time":[DateManager nowTimeStampString],@"date":[DateManager stringConvert_YMD_FromDate:[NSDate date]],@"content":string?:@""};
-        info.item = item;
-        [Scanner insert:item];
-        [self.navigationController pushViewController:info animated:YES];
-
+        [weakSelf addNewRecord:string];
+    }];
+    _recognize = [[RecognizeViewController alloc]init];
+    _recognize.tabBarItem.title=@"识别图片";
+    _recognize.tabBarItem.image = [UIImage imageNamed:@"icon_find.png"];
+    _recognize.navigationItem.title = @"识别图片";
+    [_recognize recognizeFinishingBlock:^(NSString *string) {
+        [weakSelf addNewRecord:string];
     }];
     _scan.tabBarItem.title=@"扫描";
     _scan.tabBarItem.image = [UIImage imageNamed:@"icon_qrcode.png"];
@@ -57,12 +60,21 @@
     _maker.tabBarItem.title=@"生成";
     _maker.tabBarItem.image = [UIImage imageNamed:@"icon_make.png"];
     _maker.navigationItem.title=@"生成二维码";
-    self.viewControllers = @[_history,_scan,_maker];
+    
+ 
+    self.viewControllers = @[_history,_scan,_maker,_recognize];
     self.selectedViewController = _scan;
     [self tabBarController:self didSelectViewController:_scan];
     
 }
-
+-(void)addNewRecord:(NSString*)scan{
+    NSLog(@"scan string:%@",scan);
+    InfoViewController *info = [[InfoViewController alloc]init];
+    NSDictionary *item =  @{@"time":[DateManager nowTimeStampString],@"date":[DateManager stringConvert_YMD_FromDate:[NSDate date]],@"content":scan?:@""};
+    info.item = item;
+    [Scanner insert:item];
+    [self.navigationController pushViewController:info animated:YES];
+}
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
    self.title = viewController.navigationItem.title;
@@ -90,6 +102,14 @@
         
         makerButton.frame = CGRectMake(0, 0, 25, 25);
         [makerButton addTarget:_maker action:@selector(makerTouched:) forControlEvents:UIControlEventTouchUpInside];
+        [self addRightBarButtonItem:makerButton];
+    }
+    if ([viewController isKindOfClass:[RecognizeViewController class]]) {
+        UIButton *makerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [makerButton setImage:[UIImage imageNamed:@"icon_browse.png"] forState:UIControlStateNormal];
+        
+        makerButton.frame = CGRectMake(0, 0, 25, 25);
+        [makerButton addTarget:_recognize action:@selector(browseTouched:) forControlEvents:UIControlEventTouchUpInside];
         [self addRightBarButtonItem:makerButton];
     }
 }
