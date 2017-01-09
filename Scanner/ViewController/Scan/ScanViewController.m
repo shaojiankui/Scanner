@@ -41,13 +41,16 @@
     
     //扫描线
     _scanLayer = [[UIView alloc] init];
-    _scanLayer.frame = CGRectMake(0, 0, self.scanRectView.bounds.size.width, 1);
     _scanLayer.backgroundColor = [UIColor greenColor];
     [self.scanRectView addSubview:_scanLayer];
-    [self moveScanLayer];
 
     [self start];
     
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    _scanLayer.frame = CGRectMake(0, 0, self.scanRectView.frame.size.width, 1);
+    [self moveScanLayer];
 }
 - (void)start
 {

@@ -62,7 +62,7 @@
     _maker.navigationItem.title=@"生成二维码";
     
  
-    self.viewControllers = @[_history,_scan,_maker,_recognize];
+    self.viewControllers = @[_scan,_history,_maker,_recognize];
     self.selectedViewController = _scan;
     [self tabBarController:self didSelectViewController:_scan];
     

@@ -52,8 +52,8 @@
     ImagePickerController *picker = [[ImagePickerController alloc] init];
     [picker setAllowsEditing:YES];
     [picker cameraSourceType:type onFinishingBlock:^(UIImagePickerController *picker, NSDictionary *info, UIImage *originalImage, UIImage *editedImage) {
-        self.preImageView.image = editedImage?:originalImage;
-        [self recognizeImage: editedImage?:originalImage];
+        self.preImageView.image = originalImage;
+        [self recognizeImage: originalImage];
     } onCancelingBlock:^() {
         
     }];
