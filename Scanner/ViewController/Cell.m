@@ -11,6 +11,7 @@
 @implementation Cell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

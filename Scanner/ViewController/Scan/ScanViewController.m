@@ -34,7 +34,7 @@
     self.scanRectView.layer.shadowRadius = 5;
     self.scanRectView.layer.shadowOpacity = 1;
     self.scanRectView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.scanRectView.frame = CGRectMake(0, 0,CGRectGetWidth([UIScreen mainScreen].bounds)/3*2, CGRectGetWidth([UIScreen mainScreen].bounds)/3*2);
+    self.scanRectView.frame = CGRectMake(0, 0,200, 200);
     
     self.scanRectView.center = CGPointMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2, CGRectGetHeight([UIScreen mainScreen].bounds)/2);
     
