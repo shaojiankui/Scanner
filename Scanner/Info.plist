@@ -2,10 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>“扫扫扫”请求使用亲的相册</string>
-	<key>NSCameraUsageDescription</key>
-	<string>“扫扫扫”请求使用亲的相机？</string>
+    <key>UILaunchImages</key>
+    <array>
+        <dict>
+            <key>UILaunchImageName</key>
+            <string>Default-568</string>
+            <key>UILaunchImageSize</key>
+            <string>{320, 568}</string>
+        </dict>
+    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleExecutable</key>
@@ -42,6 +47,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>“扫扫扫”请求使用亲的相机？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>“扫扫扫”请求使用亲的相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIPrerenderedIcon</key>
@@ -50,7 +59,19 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>Portrait (bottom home button)</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~iphone</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>

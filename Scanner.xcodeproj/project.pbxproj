@@ -54,6 +54,7 @@
 		A2E961CF1B846841002E0B30 /* JKAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E961CE1B846841002E0B30 /* JKAlert.m */; };
 		A2E961D21B847AAB002E0B30 /* icon_copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E961D01B847AAB002E0B30 /* icon_copy@2x.png */; };
 		A2E961D31B847AAB002E0B30 /* icon_copy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E961D11B847AAB002E0B30 /* icon_copy@3x.png */; };
+		B8763D2B1E24917E00643F92 /* Default-568.png in Resources */ = {isa = PBXBuildFile; fileRef = B8763D2A1E24917E00643F92 /* Default-568.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		A2E961CE1B846841002E0B30 /* JKAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKAlert.m; sourceTree = "<group>"; };
 		A2E961D01B847AAB002E0B30 /* icon_copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy@2x.png"; sourceTree = "<group>"; };
 		A2E961D11B847AAB002E0B30 /* icon_copy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy@3x.png"; sourceTree = "<group>"; };
+		B8763D2A1E24917E00643F92 /* Default-568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 		A24FC3BF1B8437F900C2055A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B8763D2A1E24917E00643F92 /* Default-568.png */,
 				A2E08AAE1C030B960065CDA1 /* icon_find@2x.png */,
 				A2E08AAF1C030B960065CDA1 /* icon_find@3x.png */,
 				A2E08AAC1C030A4F0065CDA1 /* icon_browse@3x.png */,
@@ -375,6 +378,7 @@
 				TargetAttributes = {
 					A24754081B81ABED0073A6AB = {
 						CreatedOnToolsVersion = 7.0;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -428,6 +432,7 @@
 				A2E961BD1B844131002E0B30 /* icon_qrcode@2x.png in Resources */,
 				A26522DE1B8725310067F972 /* icon_done@3x.png in Resources */,
 				A2E961C91B8467A3002E0B30 /* icon_clean@2x.png in Resources */,
+				B8763D2B1E24917E00643F92 /* Default-568.png in Resources */,
 				A25DD6391B859E16009060B1 /* icon_light_normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,14 +555,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: jiankui shao (TB56TD97WJ)";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Scanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.skyfox.Scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = org.skyfox.JKScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5a990983-ed08-4810-91ae-7d0cf9eb3acf";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -566,14 +571,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: jiankui shao (TB56TD97WJ)";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Scanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.skyfox.Scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = org.skyfox.JKScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5a990983-ed08-4810-91ae-7d0cf9eb3acf";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
