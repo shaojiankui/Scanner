@@ -16,7 +16,8 @@
 @implementation ScanViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor blackColor];
+
     
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(applicationWillEnterForeground:)   name:UIApplicationWillEnterForegroundNotification  object:nil];
     
@@ -49,8 +50,10 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    _scanLayer.frame = CGRectMake(0, 0, self.scanRectView.frame.size.width, 1);
-    [self moveScanLayer];
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        _scanLayer.frame = CGRectMake(0, 0, self.scanRectView.frame.size.width, 1);
+        [self moveScanLayer];
+    }
 }
 - (void)start
 {

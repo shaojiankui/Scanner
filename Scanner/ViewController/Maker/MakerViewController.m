@@ -7,7 +7,7 @@
 //
 
 #import "MakerViewController.h"
-
+#import "JKAlert.h"
 @interface MakerViewController ()
 
 @end
@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.qrcode.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2);
+//    self.qrcode.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2);
 }
 
 +(UIImage*)maker:(NSString*)string size:(CGFloat)width{
@@ -68,7 +68,19 @@
 }
 - (IBAction)makerTouched:(id)sender {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-   self.qrcode.image = [[self class] maker:self.text.text size:250];
+   [self.qrcodeButton setBackgroundImage:[[self class] maker:self.text.text size:250] forState:UIControlStateNormal];
+}
+
+- (IBAction)qrcodeTouched:(id)sender {
+    if (self.qrcodeButton.currentBackgroundImage) {
+        JKAlert *alert = [JKAlert alertWithTitle:@"" andMessage:@"保存到相册"];
+        [alert addCommonButtonWithTitle:@"算了吧" handler:^(JKAlertItem *item) {
+        }];
+        [alert addCommonButtonWithTitle:@"保存" handler:^(JKAlertItem *item) {
+            UIImageWriteToSavedPhotosAlbum(self.qrcodeButton.currentBackgroundImage, nil, nil, nil);
+        }];
+        [alert show];
+    }
 }
 
 @end

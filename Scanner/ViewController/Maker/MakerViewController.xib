@@ -1,39 +1,55 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8173.3" systemVersion="15A244d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MakerViewController">
             <connections>
-                <outlet property="qrcode" destination="n0Z-i5-wVG" id="EVY-GU-b4H"/>
+                <outlet property="qrcodeButton" destination="ekS-dZ-E6T" id="lG9-iE-ffX"/>
                 <outlet property="text" destination="0xu-et-nGv" id="TyG-1z-90W"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="n0Z-i5-wVG">
-                    <rect key="frame" x="35" y="195" width="250" height="250"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <animations/>
-                </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="输入" minimumFontSize="17" id="0xu-et-nGv">
-                    <rect key="frame" x="0.0" y="65" width="320" height="68"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <animations/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="输入" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0xu-et-nGv">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="68" id="Ujk-df-Upe"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekS-dZ-E6T">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="t18-p4-SZE"/>
+                        <constraint firstAttribute="height" constant="250" id="xkb-qM-kBC"/>
+                    </constraints>
+                    <connections>
+                        <action selector="qrcodeTouched:" destination="-1" eventType="touchUpInside" id="rCO-yx-Yl1"/>
+                    </connections>
+                </button>
             </subviews>
-            <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0xu-et-nGv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Dpz-Ow-UWB"/>
+                <constraint firstItem="ekS-dZ-E6T" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="LKy-hi-hLu"/>
+                <constraint firstItem="0xu-et-nGv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="jM1-kH-39c"/>
+                <constraint firstAttribute="trailing" secondItem="0xu-et-nGv" secondAttribute="trailing" id="nsg-Oh-4o1"/>
+                <constraint firstItem="ekS-dZ-E6T" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="p34-6F-Rym"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="279" y="288"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

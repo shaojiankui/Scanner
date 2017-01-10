@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = [UIColor colorWithRed:237/255.0 green:236/255.0 blue:242/255.0 alpha:1];
 //    [self navgationStyle];
 }
 

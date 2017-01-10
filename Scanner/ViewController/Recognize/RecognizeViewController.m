@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
 }
 
 - (void)recognizeFinishingBlock:(RecognizeFinishingBlock)recognizeFinishingBlock{
@@ -29,15 +30,15 @@
 }
 
 - (IBAction)browseTouched:(id)sender {
-    JKAlert *alert = [[JKAlert alloc]initWithTitle:@"选择照片来源" andMessage:nil  style:STYLE_ALERT];
-    [alert addButton:ITEM_OTHER withTitle:@"相机" handler:^(JKAlertItem *item) {
+    JKAlert *alert =  [JKAlert alertWithTitle:@"选择照片来源" andMessage:@""];
+    [alert addCommonButtonWithTitle:@"相机" handler:^(JKAlertItem *item) {
         [self showPicker:UIImagePickerControllerSourceTypeCamera];
     }];
-    [alert addButton:ITEM_OTHER withTitle:@"图片库" handler:^(JKAlertItem *item) {
+    [alert addCommonButtonWithTitle:@"图片库" handler:^(JKAlertItem *item) {
         [self showPicker:UIImagePickerControllerSourceTypePhotoLibrary];
         
     }];
-    [alert addButton:ITEM_OTHER withTitle:@"保存的相片" handler:^(JKAlertItem *item) {
+    [alert addCommonButtonWithTitle:@"保存的相片" handler:^(JKAlertItem *item) {
         [self showPicker:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
     }];
     [alert addButtonWithTitle:@"取消"];

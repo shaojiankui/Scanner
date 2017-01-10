@@ -123,11 +123,12 @@
     }
 }
 -(void)clearHistory:(UIButton*)sender{
-    JKAlert *alert = [[JKAlert alloc]initWithTitle:@"提示" andMessage:@"确定清除所有记录嘛?" style:STYLE_ALERT];
-    [alert addButton:ITEM_OTHER withTitle:@"清除" handler:^(JKAlertItem *item) {
+    
+    JKAlert *alert = [JKAlert alertWithTitle:@"提示" andMessage:@"确定清除所有记录嘛?"];
+    [alert addCommonButtonWithTitle:@"清除" handler:^(JKAlertItem *item) {
         [_history clean];
     }];
-    [alert addButton:ITEM_OTHER withTitle:@"我再想想" handler:^(JKAlertItem *item) {
+    [alert addCommonButtonWithTitle:@"我再想想" handler:^(JKAlertItem *item) {
         
     }];
     

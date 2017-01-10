@@ -10,7 +10,8 @@
 
 @interface MakerViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITextField *text;
-@property (weak, nonatomic) IBOutlet UIImageView *qrcode;
+@property (weak, nonatomic) IBOutlet UIButton *qrcodeButton;
 
 - (IBAction)makerTouched:(id)sender;
+- (IBAction)qrcodeTouched:(id)sender;
 @end
