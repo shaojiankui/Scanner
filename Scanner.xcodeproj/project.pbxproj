@@ -55,6 +55,7 @@
 		A2E961D21B847AAB002E0B30 /* icon_copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E961D01B847AAB002E0B30 /* icon_copy@2x.png */; };
 		A2E961D31B847AAB002E0B30 /* icon_copy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E961D11B847AAB002E0B30 /* icon_copy@3x.png */; };
 		B8763D2B1E24917E00643F92 /* Default-568.png in Resources */ = {isa = PBXBuildFile; fileRef = B8763D2A1E24917E00643F92 /* Default-568.png */; };
+		B87F80201E274AE700B1E9A2 /* ScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F801F1E274AE700B1E9A2 /* ScanView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,8 @@
 		A2E961D01B847AAB002E0B30 /* icon_copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy@2x.png"; sourceTree = "<group>"; };
 		A2E961D11B847AAB002E0B30 /* icon_copy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy@3x.png"; sourceTree = "<group>"; };
 		B8763D2A1E24917E00643F92 /* Default-568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568.png"; sourceTree = "<group>"; };
+		B87F801E1E274AE700B1E9A2 /* ScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanView.h; sourceTree = "<group>"; };
+		B87F801F1E274AE700B1E9A2 /* ScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +275,8 @@
 				A26522C81B871D370067F972 /* ScanViewController.h */,
 				A26522C91B871D370067F972 /* ScanViewController.m */,
 				A26522CA1B871D370067F972 /* ScanViewController.xib */,
+				B87F801E1E274AE700B1E9A2 /* ScanView.h */,
+				B87F801F1E274AE700B1E9A2 /* ScanView.m */,
 			);
 			path = Scan;
 			sourceTree = "<group>";
@@ -378,7 +383,8 @@
 				TargetAttributes = {
 					A24754081B81ABED0073A6AB = {
 						CreatedOnToolsVersion = 7.0;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 6585UJ5TQ9;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -451,6 +457,7 @@
 				A24754111B81ABED0073A6AB /* AppDelegate.m in Sources */,
 				A25DD6361B8598E8009060B1 /* JKToast.m in Sources */,
 				A25DD6131B855C82009060B1 /* DateManager.m in Sources */,
+				B87F80201E274AE700B1E9A2 /* ScanView.m in Sources */,
 				A26522CB1B871D370067F972 /* HistoryViewController.m in Sources */,
 				A25DD61D1B8565C9009060B1 /* DBManager.m in Sources */,
 				A2E961C61B845857002E0B30 /* BaseViewController.m in Sources */,
@@ -556,13 +563,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: jiankui shao (TB56TD97WJ)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6585UJ5TQ9;
 				INFOPLIST_FILE = Scanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.skyfox.JKScanner;
+				PRODUCT_BUNDLE_IDENTIFIER = org.skyfox.JKScannerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5a990983-ed08-4810-91ae-7d0cf9eb3acf";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -572,13 +581,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: jiankui shao (TB56TD97WJ)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6585UJ5TQ9;
 				INFOPLIST_FILE = Scanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.skyfox.JKScanner;
+				PRODUCT_BUNDLE_IDENTIFIER = org.skyfox.JKScannerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5a990983-ed08-4810-91ae-7d0cf9eb3acf";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

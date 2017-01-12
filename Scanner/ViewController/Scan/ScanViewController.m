@@ -9,6 +9,7 @@
 
 #import "ScanViewController.h"
 #import "JKAlert.h"
+#define SCANRECTWIDTH 200
 @interface ScanViewController ()
 
 @end
@@ -24,36 +25,19 @@
     [[NSNotificationCenter defaultCenter]  addObserver:self    selector:@selector(applicationDidEnterBackground:)  name:UIApplicationDidEnterBackgroundNotification  object:nil];
     
     
-    self.scanRectView.backgroundColor = [UIColor clearColor];
-  
-    
-    //边框
-    [self.scanRectView.layer setBorderWidth:4];
-    self.scanRectView.layer.borderColor = [[UIColor whiteColor] CGColor];
-    //阴影
-    self.scanRectView.layer.shadowOffset = CGSizeMake(2, 2);
-    self.scanRectView.layer.shadowRadius = 5;
-    self.scanRectView.layer.shadowOpacity = 1;
-    self.scanRectView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.scanRectView.frame = CGRectMake(0, 0,200, 200);
-    
-    self.scanRectView.center = CGPointMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2, CGRectGetHeight([UIScreen mainScreen].bounds)/2);
-    
+    CGRect rect = CGRectMake(([UIScreen mainScreen].bounds.size.width-SCANRECTWIDTH)/2, ([UIScreen mainScreen].bounds.size.height-SCANRECTWIDTH)/2, SCANRECTWIDTH, SCANRECTWIDTH);
+    self.scanRectView.scanRect = rect;
     
     //扫描线
     _scanLayer = [[UIView alloc] init];
     _scanLayer.backgroundColor = [UIColor greenColor];
     [self.scanRectView addSubview:_scanLayer];
-
+    [self moveScanLayer];
     [self start];
     
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-        _scanLayer.frame = CGRectMake(0, 0, self.scanRectView.frame.size.width, 1);
-        [self moveScanLayer];
-    }
 }
 - (void)start
 {
@@ -67,6 +51,7 @@
         [JKAlert showMessage:@"开启摄像头失败"];
         return;
     }
+
     // 3. 设置输出(Metadata元数据)
     AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];
     // 3.1 设置输出的代理
@@ -94,38 +79,30 @@
     self.previewLayer = preview;
     [self.view.layer insertSublayer:self.previewLayer atIndex:0];
   
-//
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    CGRect cropRect = self.scanRectView.frame;
-    CGFloat p1 = size.height/size.width;
-    CGFloat p2 = 1920./1080.;  //使用1080p的图像输出
-    if (p1 < p2) {
-        CGFloat fixHeight = [UIScreen mainScreen].bounds.size.width * 1920. / 1080.;
-        CGFloat fixPadding = (fixHeight - size.height)/2;
-        output.rectOfInterest = CGRectMake((cropRect.origin.y + fixPadding)/fixHeight,
-                                                  cropRect.origin.x/size.width,
-                                                  cropRect.size.height/fixHeight,
-                                                  cropRect.size.width/size.width);
-    } else {
-        CGFloat fixWidth = [UIScreen mainScreen].bounds.size.height * 1080. / 1920.;
-        CGFloat fixPadding = (fixWidth - size.width)/2;
-        output.rectOfInterest = CGRectMake(cropRect.origin.y/size.height,
-                                                  (cropRect.origin.x + fixPadding)/fixWidth,
-                                                  cropRect.size.height/size.height,
-                                                  cropRect.size.width/fixWidth);
-    }
-//
     self.session = session;
     
-    
-    
+  
+    //rectOfInterest 不可以直接在设置 metadataOutput 时接着设置，而需要在这个 AVCaptureInputPortFormatDescriptionDidChangeNotification 通知里设置，否则 metadataOutputRectOfInterestForRect: 转换方法会返回 (0, 0, 0, 0)
+    [[NSNotificationCenter defaultCenter] addObserverForName:AVCaptureInputPortFormatDescriptionDidChangeNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue currentQueue]
+                                                  usingBlock: ^(NSNotification *_Nonnull note) {
+                                                      AVCaptureMetadataOutput *output = self.session.outputs.firstObject;
+                                                      output.rectOfInterest = [self.previewLayer metadataOutputRectOfInterestForRect:self.scanRectView.scanRect];
+
+                                                  }];
 }
+
 - (void)moveScanLayer
 {
+    _scanLayer.frame =  CGRectMake(self.scanRectView.scanRect.origin.x,self.scanRectView.scanRect.origin.y,SCANRECTWIDTH, 1);
+    _scanLayer.hidden = NO;
     [UIView animateWithDuration:2 animations:^{
-        _scanLayer.transform = CGAffineTransformMakeTranslation(0, self.scanRectView.frame.size.height-4);
+        _scanLayer.frame =  CGRectMake(self.scanRectView.scanRect.origin.x,self.scanRectView.scanRect.origin.y+200,SCANRECTWIDTH, 1);
+//        _scanLayer.transform = CGAffineTransformMakeTranslation(0, self.scanRectView.scanRect.size.height+1);
     } completion:^(BOOL finished) {
-        _scanLayer.transform = CGAffineTransformIdentity;
+        _scanLayer.frame =  CGRectMake(self.scanRectView.scanRect.origin.x,self.scanRectView.scanRect.origin.y,SCANRECTWIDTH, 1);
+        _scanLayer.hidden = YES;
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(moveScanLayer) object:nil];
         [self performSelector:@selector(moveScanLayer) withObject:nil afterDelay:0.1];
     }];
@@ -152,7 +129,9 @@
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
         if(_finishingBlock &&[obj isKindOfClass:[AVMetadataMachineReadableCodeObject class]]){
             [self.session stopRunning];
-            _finishingBlock(obj.stringValue);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _finishingBlock(obj.stringValue);
+            });
         }
         
     }
